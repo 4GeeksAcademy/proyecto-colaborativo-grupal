@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Marca | Checkout</title>
+    <meta name="description" content="Completa los pasos de demostración para finalizar tu pedido.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-paper: #fafaf8;
+        --color-ink: #202020;
+        --color-muted: #595959;
+        --color-accent: #a3293d;
+        --color-accent-hover: #842033;
+        --color-surface: #eef1ed;
+        --color-line: #d6d6d2;
+        --font-sans: "Manrope", sans-serif;
+        --font-display: "Bodoni Moda", serif;
+      }
+
+      @layer base {
+        html {
+          color-scheme: light;
+          letter-spacing: 0;
+        }
+
+        body {
+          @apply m-0 flex min-h-dvh flex-col bg-paper font-sans text-base leading-normal text-ink;
+        }
+
+        :focus-visible {
+          outline: 2px solid var(--color-accent);
+          outline-offset: 4px;
+        }
+
+        button, input, summary {
+          font: inherit;
+        }
+
+        button:disabled, input:disabled {
+          cursor: not-allowed;
+          opacity: 1;
+        }
+
+        summary {
+          list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+          display: none;
+        }
+      }
+
+      @layer components {
+        .page-width {
+          @apply mx-auto w-full max-w-[1280px] px-4 md:px-6;
+        }
+
+        .icon-control {
+          @apply inline-flex size-12 shrink-0 items-center justify-center rounded-sm border border-transparent;
+        }
+
+        .pending-link {
+          @apply inline-flex min-h-11 max-w-full items-center py-2 text-left text-muted;
+          overflow-wrap: anywhere;
+        }
+
+        .footer-title {
+          @apply mb-4 font-display text-[28px] leading-tight;
+        }
+
+        .form-field {
+          @apply min-h-12 w-full rounded-sm border border-muted bg-paper px-3 py-2 text-ink;
+        }
+
+        .form-label {
+          @apply mb-2 block font-medium;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="sr-only z-50 rounded-sm bg-ink px-4 py-3 text-white focus:not-sr-only focus:fixed focus:top-4 focus:left-4">
+      Saltar al contenido
+    </a>
+
+    <header class="border-b border-line">
+      <nav class="page-width" aria-label="Navegación principal">
+        <div class="flex min-h-24 flex-wrap items-center justify-between gap-x-4 gap-y-4 py-4">
+          <a aria-disabled="true" class="min-w-0 break-words font-display text-[32px] leading-tight md:text-[40px]" title="Marca provisional; inicio pendiente">
+            Marca<span class="text-accent" aria-hidden="true">.</span>
+          </a>
+
+          <div class="hidden items-center gap-6 lg:flex" aria-label="Secciones">
+            <a aria-disabled="true" class="pending-link" title="Destino pendiente">Inicio</a>
+            <a aria-disabled="true" class="pending-link" title="Destino pendiente">Catálogo</a>
+          </div>
+
+          <form role="search" aria-label="Buscar productos" class="order-3 w-full md:order-none md:ml-auto md:w-auto md:max-w-sm md:flex-1">
+            <label for="product-search" class="sr-only">Buscar productos</label>
+            <div class="flex min-h-12 items-center gap-3 rounded-sm border border-muted px-4">
+              <i data-lucide="search" class="size-5 shrink-0 text-muted" aria-hidden="true"></i>
+              <input id="product-search" name="q" type="search" placeholder="Buscar" disabled title="Búsqueda pendiente" class="min-w-0 w-full bg-transparent py-3 text-ink placeholder:text-muted">
+            </div>
+          </form>
+
+          <div class="ml-auto flex shrink-0 items-center gap-1 md:ml-0">
+            <details class="relative">
+              <summary class="icon-control cursor-pointer hover:bg-surface" aria-label="Menú de cuenta" title="Mi cuenta">
+                <i data-lucide="user-round" class="size-5" aria-hidden="true"></i>
+              </summary>
+              <ul class="absolute top-full right-0 z-20 mt-2 w-56 rounded-sm border border-line bg-paper p-4 shadow-sm">
+                <li><button type="button" disabled class="pending-link w-full" title="Cuenta pendiente">Mi cuenta</button></li>
+                <li><button type="button" disabled class="pending-link w-full" title="Pedidos pendientes">Mis pedidos</button></li>
+              </ul>
+            </details>
+            <a href="cart.html" class="icon-control text-accent" aria-label="Volver al carrito" title="Carrito">
+              <i data-lucide="shopping-bag" class="size-5" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <details id="mobile-navigation" class="border-t border-line lg:hidden">
+          <summary class="flex min-h-12 cursor-pointer items-center justify-between gap-4 py-3">
+            <span>Menú</span>
+            <i data-lucide="menu" class="size-5 shrink-0" aria-hidden="true"></i>
+          </summary>
+          <ul class="grid grid-cols-1 gap-x-8 pb-4 sm:grid-cols-2">
+            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Inicio</a></li>
+            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Catálogo</a></li>
+            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Calzado</a></li>
+            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Camisas</a></li>
+            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Pantalones</a></li>
+            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Accesorios</a></li>
+          </ul>
+        </details>
+      </nav>
+    </header>
+
+    <main id="main-content" tabindex="-1" class="page-width flex-1">
+      <div class="py-8 md:py-12">
+        <div class="mb-8">
+          <p class="mb-2 text-sm text-muted">Compra de demostración</p>
+          <h1 class="font-display text-[32px] leading-tight md:text-[48px]">Checkout</h1>
+        </div>
+
+        <section id="checkout-empty" aria-labelledby="checkout-empty-title" hidden class="max-w-2xl border-y border-line py-10">
+          <h2 id="checkout-empty-title" tabindex="-1" class="font-display text-[28px] leading-tight">No hay productos para continuar</h2>
+          <p class="mt-3 text-muted">Vuelve al carrito para revisar los productos de demostración.</p>
+          <a href="cart.html" class="mt-6 inline-flex min-h-12 items-center justify-center rounded-sm border border-ink px-5 py-3 font-medium">Volver al carrito</a>
+        </section>
+
+        <div id="checkout-content" class="grid items-start gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(18rem,0.8fr)]">
+          <div>
+            <nav aria-label="Pasos del checkout" class="mb-8">
+              <ol class="grid grid-cols-3 gap-2 sm:gap-4">
+                <li data-step-indicator="1" aria-current="step" class="flex min-w-0 items-start gap-2 border-t-2 border-accent py-3 text-sm sm:gap-3">
+                  <span class="font-semibold text-accent">01</span>
+                  <span class="min-w-0">Datos personales</span>
+                </li>
+                <li data-step-indicator="2" class="flex min-w-0 items-start gap-2 border-t-2 border-line py-3 text-sm text-muted sm:gap-3">
+                  <span class="font-semibold">02</span>
+                  <span class="min-w-0">Dirección de entrega</span>
+                </li>
+                <li data-step-indicator="3" class="flex min-w-0 items-start gap-2 border-t-2 border-line py-3 text-sm text-muted sm:gap-3">
+                  <span class="font-semibold">03</span>
+                  <span class="min-w-0">Pago simulado</span>
+                </li>
+              </ol>
+            </nav>
+
+            <form id="checkout-form" novalidate>
+              <section data-step-panel="1" aria-labelledby="personal-title">
+                <h2 id="personal-title" tabindex="-1" class="font-display text-[28px] leading-tight">Datos personales</h2>
+                <p class="mt-2 text-sm text-muted">Campos provisionales para esta demostración; deben confirmarse antes de la versión final.</p>
+
+                <div class="mt-6 grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label for="full-name" class="form-label">Nombre completo</label>
+                    <input id="full-name" name="fullName" type="text" autocomplete="name" required aria-describedby="full-name-error" data-checkout-field class="form-field">
+                    <p id="full-name-error" data-field-error hidden class="mt-2 text-sm text-accent" role="alert">Escribe tu nombre completo.</p>
+                  </div>
+                  <div>
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" data-checkout-field class="form-field">
+                    <p id="email-error" data-field-error hidden class="mt-2 text-sm text-accent" role="alert">Escribe un correo electrónico válido.</p>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label for="phone" class="form-label">Teléfono <span class="font-normal text-muted">(opcional)</span></label>
+                    <input id="phone" name="phone" type="tel" autocomplete="tel" data-checkout-field class="form-field">
+                  </div>
+                </div>
+
+                <div class="mt-8 flex justify-end">
+                  <button type="button" data-next-step="2" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-sm bg-accent px-5 py-3 font-medium text-white hover:bg-accent-hover">
+                    Continuar a la dirección
+                    <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </section>
+
+              <section data-step-panel="2" aria-labelledby="address-title" hidden>
+                <h2 id="address-title" tabindex="-1" class="font-display text-[28px] leading-tight">Dirección de entrega</h2>
+                <p class="mt-2 text-sm text-muted">Campos provisionales; el formato y los países disponibles siguen pendientes.</p>
+
+                <div class="mt-6 grid gap-5 sm:grid-cols-2">
+                  <div class="sm:col-span-2">
+                    <label for="address-line" class="form-label">Dirección</label>
+                    <input id="address-line" name="addressLine" type="text" autocomplete="street-address" required aria-describedby="address-line-error" data-checkout-field class="form-field">
+                    <p id="address-line-error" data-field-error hidden class="mt-2 text-sm text-accent" role="alert">Escribe la dirección de entrega.</p>
+                  </div>
+                  <div>
+                    <label for="postal-code" class="form-label">Código postal</label>
+                    <input id="postal-code" name="postalCode" type="text" autocomplete="postal-code" required aria-describedby="postal-code-error" data-checkout-field class="form-field">
+                    <p id="postal-code-error" data-field-error hidden class="mt-2 text-sm text-accent" role="alert">Escribe el código postal.</p>
+                  </div>
+                  <div>
+                    <label for="city" class="form-label">Ciudad</label>
+                    <input id="city" name="city" type="text" autocomplete="address-level2" required aria-describedby="city-error" data-checkout-field class="form-field">
+                    <p id="city-error" data-field-error hidden class="mt-2 text-sm text-accent" role="alert">Escribe la ciudad.</p>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label for="country" class="form-label">País o región</label>
+                    <input id="country" name="country" type="text" autocomplete="country-name" required aria-describedby="country-error" data-checkout-field class="form-field">
+                    <p id="country-error" data-field-error hidden class="mt-2 text-sm text-accent" role="alert">Escribe el país o la región.</p>
+                  </div>
+                </div>
+
+                <div class="mt-8 flex flex-wrap justify-between gap-3">
+                  <button type="button" data-previous-step="1" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-sm border border-ink px-5 py-3 font-medium">
+                    <i data-lucide="arrow-left" class="size-4" aria-hidden="true"></i>
+                    Volver a datos personales
+                  </button>
+                  <button type="button" data-next-step="3" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-sm bg-accent px-5 py-3 font-medium text-white hover:bg-accent-hover">
+                    Continuar al pago
+                    <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </section>
+
+              <section data-step-panel="3" aria-labelledby="payment-title" hidden>
+                <h2 id="payment-title" tabindex="-1" class="font-display text-[28px] leading-tight">Pago con tarjeta</h2>
+                <p class="mt-2 text-sm text-muted">Simulación; no se realizará ningún cargo.</p>
+
+                <div class="mt-6 border border-line bg-surface p-5" role="status">
+                  <div class="flex items-start gap-4">
+                    <i data-lucide="credit-card" class="mt-1 size-5 shrink-0 text-accent" aria-hidden="true"></i>
+                    <div>
+                      <h3 class="font-medium">Tarjeta (demostración)</h3>
+                      <p class="mt-2 text-sm text-muted">No introduzcas datos bancarios. Esta pantalla no solicita número de tarjeta, vencimiento ni código de seguridad, y no procesa pagos.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-8 flex flex-wrap justify-between gap-3">
+                  <button type="button" data-previous-step="2" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-sm border border-ink px-5 py-3 font-medium">
+                    <i data-lucide="arrow-left" class="size-4" aria-hidden="true"></i>
+                    Volver a la dirección
+                  </button>
+                  <button type="button" id="confirm-demo" class="inline-flex min-h-12 items-center justify-center rounded-sm bg-accent px-5 py-3 font-medium text-white hover:bg-accent-hover">
+                    Confirmar compra simulada
+                  </button>
+                </div>
+              </section>
+            </form>
+
+            <section id="checkout-confirmation" aria-labelledby="confirmation-title" hidden class="border-t border-line py-8" role="status">
+              <i data-lucide="circle-check" class="mb-4 size-8 text-accent" aria-hidden="true"></i>
+              <h2 id="confirmation-title" tabindex="-1" class="font-display text-[28px] leading-tight">Pedido de demostración confirmado</h2>
+              <p class="mt-3 text-muted">No se realizó ningún pago ni se guardaron datos bancarios. Esta confirmación no representa una compra real.</p>
+              <a href="cart.html" class="mt-6 inline-flex min-h-12 items-center justify-center rounded-sm border border-ink px-5 py-3 font-medium">Volver al carrito</a>
+            </section>
+          </div>
+
+          <aside aria-labelledby="summary-title" class="h-fit rounded-sm border border-line bg-surface p-5 md:p-6">
+            <h2 id="summary-title" class="font-display text-[28px] leading-tight">Resumen del pedido</h2>
+            <ul id="order-items" class="mt-5 divide-y divide-line border-y border-line" aria-label="Productos del pedido"></ul>
+            <dl class="mt-5 space-y-4">
+              <div class="flex items-baseline justify-between gap-4">
+                <dt>Subtotal</dt>
+                <dd class="font-medium"><data id="order-subtotal" value="0">0,00</data></dd>
+              </div>
+              <div class="flex items-baseline justify-between gap-4">
+                <dt>Impuestos</dt>
+                <dd class="text-right text-muted">Por definir</dd>
+              </div>
+              <div class="flex items-baseline justify-between gap-4 border-t border-line pt-4 text-lg font-semibold">
+                <dt>Total</dt>
+                <dd>Pendiente</dd>
+              </div>
+            </dl>
+            <p class="mt-4 text-sm text-muted">Importes ilustrativos sin moneda, impuestos ni envío confirmados.</p>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="border-t border-line bg-surface">
+      <div class="page-width grid grid-cols-1 gap-x-8 gap-y-8 py-8 sm:grid-cols-2 lg:grid-cols-4 lg:py-12">
+        <div>
+          <p class="font-display text-[32px] leading-tight">Marca<span class="text-accent" aria-hidden="true">.</span></p>
+        </div>
+
+        <nav aria-labelledby="footer-categories">
+          <h2 id="footer-categories" class="footer-title">Categorías</h2>
+          <ul>
+            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Calzado</a></li>
+            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Camisas</a></li>
+            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Pantalones</a></li>
+            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Accesorios</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-labelledby="footer-information">
+          <h2 id="footer-information" class="footer-title">Información</h2>
+          <ul>
+            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Términos y condiciones</a></li>
+            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Política de privacidad</a></li>
+            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Sobre la marca</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-labelledby="footer-contact">
+          <h2 id="footer-contact" class="footer-title">Contacto</h2>
+          <ul>
+            <li><a aria-disabled="true" class="pending-link" title="Datos de contacto pendientes">Atención al cliente</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+
+        document.querySelectorAll("details").forEach((menu) => {
+          menu.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && menu.open) {
+              menu.open = false;
+              menu.querySelector("summary").focus();
+            }
+          });
+        });
+
+        const products = {
+          "tee-001": { name: "Camiseta de algodón", sizes: ["M"], price: 32 },
+          "trouser-001": { name: "Pantalón de corte recto", sizes: ["40"], price: 58 },
+          "jacket-001": { name: "Chaqueta ligera", sizes: ["M"], price: 84 },
+        };
+        const numberFormat = new Intl.NumberFormat("es", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
+        const params = new URLSearchParams(window.location.search);
+        let requestedItems;
+
+        try {
+          requestedItems = JSON.parse(params.get("items") || "null");
+        } catch {
+          requestedItems = null;
+        }
+
+        const validCart = Array.isArray(requestedItems) && requestedItems.length > 0 && requestedItems.every((item) => {
+          const product = products[item?.id];
+          return product
+            && product.sizes.includes(String(item.size))
+            && Number.isSafeInteger(item.quantity)
+            && item.quantity > 0;
+        });
+
+        const checkoutContent = document.querySelector("#checkout-content");
+        const emptyState = document.querySelector("#checkout-empty");
+
+        if (!validCart) {
+          checkoutContent.hidden = true;
+          emptyState.hidden = false;
+          return;
+        }
+
+        const orderItems = document.querySelector("#order-items");
+        const subtotalOutput = document.querySelector("#order-subtotal");
+        const cartSubtotal = requestedItems.reduce((sum, item) => {
+          const product = products[item.id];
+          const lineTotal = product.price * item.quantity;
+          const listItem = document.createElement("li");
+          listItem.className = "flex items-start justify-between gap-4 py-4";
+
+          const description = document.createElement("div");
+          description.className = "min-w-0";
+          const name = document.createElement("p");
+          name.className = "break-words font-medium";
+          name.textContent = product.name;
+          const quantity = document.createElement("p");
+          quantity.className = "mt-1 text-sm text-muted";
+          quantity.textContent = `Talla ${item.size} · Cantidad ${item.quantity}`;
+          description.append(name, quantity);
+
+          const amount = document.createElement("data");
+          amount.value = String(lineTotal);
+          amount.textContent = numberFormat.format(lineTotal);
+          amount.className = "shrink-0 font-medium";
+          listItem.append(description, amount);
+          orderItems.append(listItem);
+          return sum + lineTotal;
+        }, 0);
+
+        subtotalOutput.value = String(cartSubtotal);
+        subtotalOutput.textContent = numberFormat.format(cartSubtotal);
+
+        const form = document.querySelector("#checkout-form");
+        const panels = [...form.querySelectorAll("[data-step-panel]")];
+        const indicators = [...document.querySelectorAll("[data-step-indicator]")];
+        const confirmation = document.querySelector("#checkout-confirmation");
+        let currentStep = 1;
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+        });
+
+        const showStep = (step, moveFocus = true) => {
+          currentStep = step;
+          for (const panel of panels) {
+            panel.hidden = Number(panel.dataset.stepPanel) !== step;
+          }
+          for (const indicator of indicators) {
+            const isCurrent = Number(indicator.dataset.stepIndicator) === step;
+            if (isCurrent) {
+              indicator.setAttribute("aria-current", "step");
+              indicator.classList.remove("border-line", "text-muted");
+              indicator.classList.add("border-accent", "text-ink");
+            } else {
+              indicator.removeAttribute("aria-current");
+              indicator.classList.remove("border-accent", "text-ink");
+              indicator.classList.add("border-line", "text-muted");
+            }
+          }
+          if (moveFocus) {
+            panels.find((panel) => Number(panel.dataset.stepPanel) === step)
+              ?.querySelector("h2")
+              ?.focus();
+          }
+        };
+
+        const validateCurrentStep = () => {
+          const panel = panels.find((entry) => Number(entry.dataset.stepPanel) === currentStep);
+          const fields = [...panel.querySelectorAll("[data-checkout-field]")];
+          let firstInvalidField = null;
+
+          for (const field of fields) {
+            const valid = field.checkValidity();
+            field.setAttribute("aria-invalid", String(!valid));
+            const error = document.querySelector(`#${field.id}-error`);
+            if (error) {
+              error.hidden = valid;
+            }
+            if (!valid && !firstInvalidField) {
+              firstInvalidField = field;
+            }
+          }
+
+          firstInvalidField?.focus();
+          return firstInvalidField === null;
+        };
+
+        form.addEventListener("input", (event) => {
+          if (!event.target.matches("[data-checkout-field]")) {
+            return;
+          }
+          const field = event.target;
+          const valid = field.checkValidity();
+          field.setAttribute("aria-invalid", String(!valid));
+          const error = document.querySelector(`#${field.id}-error`);
+          if (error) {
+            error.hidden = valid;
+          }
+        });
+
+        form.addEventListener("click", (event) => {
+          const nextButton = event.target.closest("[data-next-step]");
+          if (nextButton) {
+            if (validateCurrentStep()) {
+              showStep(Number(nextButton.dataset.nextStep));
+            }
+            return;
+          }
+
+          const previousButton = event.target.closest("[data-previous-step]");
+          if (previousButton) {
+            showStep(Number(previousButton.dataset.previousStep));
+          }
+        });
+
+        document.querySelector("#confirm-demo").addEventListener("click", () => {
+          form.hidden = true;
+          confirmation.hidden = false;
+          for (const indicator of indicators) {
+            indicator.removeAttribute("aria-current");
+            indicator.classList.remove("border-line", "text-muted");
+            indicator.classList.add("border-accent", "text-ink");
+          }
+          document.querySelector("#confirmation-title").focus();
+        });
+
+        showStep(currentStep, false);
+      });
+    </script>
+  </body>
+</html>
