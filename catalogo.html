@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Marca | Catálogo de demostración</title>
+    <meta name="description" content="Vista provisional del catálogo de Marca. El listado y los filtros están pendientes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-paper: #fafaf8;
+        --color-ink: #202020;
+        --color-muted: #595959;
+        --color-accent: #a3293d;
+        --color-surface: #eef1ed;
+        --color-line: #d6d6d2;
+        --font-sans: "Manrope", sans-serif;
+        --font-display: "Bodoni Moda", serif;
+      }
+      @layer base {
+        html { color-scheme: light; letter-spacing: 0; }
+        body { @apply m-0 flex min-h-dvh flex-col bg-paper font-sans text-base leading-normal text-ink; }
+        :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+        button, input, summary { font: inherit; }
+        summary { list-style: none; }
+        summary::-webkit-details-marker { display: none; }
+      }
+      @layer components {
+        .page-width { @apply mx-auto w-full max-w-[1280px] px-4 md:px-6; }
+        .icon-control { @apply inline-flex size-12 shrink-0 items-center justify-center rounded-sm border border-transparent; }
+        .pending-link { @apply inline-flex min-h-11 max-w-full items-center py-2 text-left text-muted; overflow-wrap: anywhere; }
+        .footer-title { @apply mb-4 font-display text-[28px] leading-tight; }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="sr-only z-50 rounded-sm bg-ink px-4 py-3 text-white focus:not-sr-only focus:fixed focus:top-4 focus:left-4">Saltar al contenido</a>
+    <header class="border-b border-line">
+      <nav class="page-width" aria-label="Navegación principal">
+        <div class="flex min-h-24 flex-wrap items-center justify-between gap-x-4 gap-y-4 py-4">
+          <a href="/" class="min-w-0 shrink-0 font-display text-[32px] leading-tight md:text-[40px]" aria-label="Marca, inicio">Marca<span class="text-accent" aria-hidden="true">.</span></a>
+          <div class="hidden items-center gap-4 xl:flex">
+            <a href="/" class="inline-flex min-h-11 items-center whitespace-nowrap">Inicio</a>
+            <a href="/catalogo.html" aria-current="page" class="inline-flex min-h-11 items-center whitespace-nowrap">Catálogo</a>
+            <a href="/producto.html" class="inline-flex min-h-11 items-center whitespace-nowrap">Vista de producto</a>
+            <a href="/carrito.html" class="inline-flex min-h-11 items-center whitespace-nowrap">Carrito</a>
+            <a href="/checkout.html" class="inline-flex min-h-11 items-center whitespace-nowrap">Formulario de pago</a>
+          </div>
+          <form role="search" aria-label="Buscar productos" class="order-3 w-full md:order-none md:ml-auto md:w-auto md:max-w-sm md:flex-1">
+            <label for="product-search" class="sr-only">Buscar productos</label>
+            <div class="flex min-h-12 items-center gap-3 rounded-sm border border-muted px-4">
+              <i data-lucide="search" class="size-5 shrink-0 text-muted" aria-hidden="true"></i>
+              <input id="product-search" name="q" type="search" placeholder="Buscar" disabled title="Búsqueda pendiente" class="min-w-0 w-full bg-transparent py-3 text-ink placeholder:text-muted">
+            </div>
+          </form>
+          <div class="ml-auto flex shrink-0 items-center gap-1 md:ml-0">
+            <details class="relative">
+              <summary class="icon-control cursor-pointer hover:bg-surface" aria-label="Menú de cuenta" title="Mi cuenta"><i data-lucide="user-round" class="size-5" aria-hidden="true"></i></summary>
+              <ul class="absolute top-full right-0 z-20 mt-2 w-56 rounded-sm border border-line bg-paper p-4 shadow-sm">
+                <li><button type="button" disabled class="pending-link w-full">Mi cuenta, pendiente</button></li>
+                <li><button type="button" disabled class="pending-link w-full">Mis pedidos, pendiente</button></li>
+              </ul>
+            </details>
+            <a href="/carrito.html" class="icon-control text-muted hover:bg-surface" aria-label="Carrito" title="Carrito"><i data-lucide="shopping-bag" class="size-5" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <details class="border-t border-line xl:hidden">
+          <summary class="flex min-h-12 cursor-pointer items-center justify-between gap-4 py-3"><span>Menú</span><i data-lucide="menu" class="size-5 shrink-0" aria-hidden="true"></i></summary>
+          <ul class="grid grid-cols-1 gap-x-8 pb-4 sm:grid-cols-2">
+            <li><a href="/" class="pending-link">Inicio</a></li>
+            <li><a href="/catalogo.html" aria-current="page" class="pending-link">Catálogo</a></li>
+            <li><a href="/producto.html" class="pending-link">Vista de producto</a></li>
+            <li><a href="/carrito.html" class="pending-link">Carrito</a></li>
+            <li><a href="/checkout.html" class="pending-link">Formulario de pago (checkout)</a></li>
+          </ul>
+        </details>
+      </nav>
+    </header>
+    <main id="main-content" tabindex="-1" class="page-width flex-1 py-10 md:py-14">
+      <p class="mb-3 text-sm font-semibold uppercase text-accent">Vista provisional</p>
+      <h1 class="mb-4 font-display text-[36px] leading-tight md:text-[48px]">Catálogo</h1>
+      <p class="max-w-prose text-muted">El listado de productos y los filtros por categoría y talla están pendientes de implementación.</p>
+      <a href="/producto.html" class="mt-8 inline-flex min-h-11 items-center gap-2 font-semibold text-accent">Ver producto de demostración <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i></a>
+    </main>
+    <footer class="border-t border-line bg-surface">
+      <div class="page-width grid grid-cols-1 gap-x-8 gap-y-8 py-8 sm:grid-cols-2 lg:grid-cols-4 lg:py-12">
+        <div><p class="font-display text-[32px] leading-tight">Marca<span class="text-accent" aria-hidden="true">.</span></p></div>
+        <nav aria-labelledby="footer-categories"><h2 id="footer-categories" class="footer-title">Categorías</h2><ul>
+          <li><span class="pending-link text-muted">Calzado</span></li><li><span class="pending-link text-muted">Camisas</span></li><li><span class="pending-link text-muted">Pantalones</span></li><li><span class="pending-link text-muted">Accesorios</span></li>
+        </ul></nav>
+        <nav aria-labelledby="footer-information"><h2 id="footer-information" class="footer-title">Información</h2><ul>
+          <li><span class="pending-link text-muted">Términos y condiciones</span></li><li><span class="pending-link text-muted">Política de privacidad</span></li><li><span class="pending-link text-muted">Sobre la marca</span></li>
+        </ul></nav>
+        <nav aria-labelledby="footer-contact"><h2 id="footer-contact" class="footer-title">Contacto</h2><ul><li><span class="pending-link text-muted">Atención al cliente, datos pendientes</span></li></ul></nav>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) window.lucide.createIcons();
+        document.querySelectorAll("details").forEach((menu) => menu.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && menu.open) { menu.open = false; menu.querySelector("summary").focus(); }
+        }));
+      });
+    </script>
+  </body>
+</html>
