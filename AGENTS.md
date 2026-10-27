@@ -7,13 +7,14 @@
 
 ## Stack y estructura
 - Existe una plantilla con documentación, `learn.json` y un servidor de archivos con Flask en `server.py`.
-- Frontend previsto: HTML semántico, Tailwind CSS v4 mediante CDN y JavaScript; todavía no hay páginas implementadas.
+- Frontend: HTML semántico, Tailwind CSS v4 mediante CDN y JavaScript. Home existe en `index.html`; catálogo, producto, carrito y checkout quedan pendientes.
 - No asumir carpetas, dependencias ni herramientas adicionales.
 
 ## Comandos
 - Comando documentado en [README.es.md](README.es.md): `pip3 install flask && python3 server.py`.
-- El servidor está configurado en `http://localhost:3000`; falta crear `index.html` para la entrada HTML.
-- No se ha verificado la ejecución del servidor. No hay comandos de build, lint o pruebas verificados.
+- El servidor está configurado en `http://localhost:3000` y sirve `index.html` en `/`.
+- La navbar reserva `/catalogo.html`, `/producto.html`, `/carrito.html` y `/checkout.html`; esas vistas todavía no tienen archivos y deben implementarse en una fase posterior.
+- No hay comandos de build, lint o pruebas verificados.
 
 ## Convenciones
 - Mantener cambios mínimos y respetar el estilo existente.

@@ -12,7 +12,7 @@ Fuentes: [Context.md](../../Context.md), [DESIGN.md](../../DESIGN.md) y [AGENTS.
 - Esta tarea solo documenta requisitos; no crea la plantilla ni implementa código.
 - Incluir estructura del documento, metadatos básicos, Tailwind CSS v4 por CDN, navbar, un único `main` vacío y footer.
 - No incluir hero, productos, filtros, carrito, formularios ni contenido específico de las vistas.
-- La plantilla es una referencia estática; la entrada `/` sirve Home y las vistas provisionales usan `/catalogo.html`, `/producto.html`, `/carrito.html` y `/checkout.html`.
+- La plantilla es una referencia estática; `/` sirve Home. La navbar reserva `/catalogo.html`, `/producto.html`, `/carrito.html` y `/checkout.html`, pero sus archivos se crearán en una fase posterior.
 - No introducir frameworks, dependencias de build ni una arquitectura de componentes.
 
 ## Documento y dependencias
@@ -42,6 +42,7 @@ Fuentes: [Context.md](../../Context.md), [DESIGN.md](../../DESIGN.md) y [AGENTS.
 - La vista de producto de demostración se puede abrir desde Catálogo y desde las tarjetas de Home.
 - Proporcionar un campo de búsqueda con etiqueta accesible, no solo un placeholder.
 - Mostrar las cinco vistas en navegación de escritorio desde un ancho suficiente; en anchos menores, ofrecer un menú compacto con esas mismas rutas y sin desbordamiento.
+- Mantener esos cuatro href como destinos futuros aunque sus archivos todavía no existan; no considerar esas rutas funcionales hasta crear las vistas.
 - Prever un menú compacto para móvil con control accesible, estado expandido identificable y navegación mediante teclado.
 - Los botones de icono tendrán nombre accesible y ayuda para iconos poco familiares.
 - No implementar autenticación, resultados de búsqueda, contador de carrito ni persistencia como parte de esta plantilla.
@@ -73,7 +74,8 @@ Fuentes: [Context.md](../../Context.md), [DESIGN.md](../../DESIGN.md) y [AGENTS.
 - La implementación futura existe en la ubicación acordada y carga Tailwind CSS v4 desde el CDN indicado.
 - El documento incluye viewport, codificación, idioma y metadatos adaptables por página.
 - Existe exactamente un `main`, vacío y accesible mediante el enlace de salto.
-- Navbar y footer contienen los elementos acordados; la navegación enlaza a las cinco rutas y el footer conserva sus grupos definidos.
+- Navbar y footer contienen los elementos acordados; la navegación conserva href para las cinco rutas previstas y el footer sus grupos definidos.
+- Las cuatro rutas futuras no se consideran funcionales hasta que se creen sus archivos HTML.
 - No hay anchors sin `href`; los elementos sin destino aprobado son no interactivos.
 - Cada vista implementada marca la actual con `aria-current="page"`; la plantilla de referencia no marca ninguna como actual.
 - Revisar manualmente móvil, tablet y escritorio, teclado, foco, menú compacto y ausencia de solapamientos.

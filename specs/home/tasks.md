@@ -8,7 +8,7 @@ Basadas en [spec.md](spec.md), [plan.md](plan.md), [Context.md](../../Context.md
 - [x] Confirmar español y «Marca» como identidad provisional.
 - [x] Confirmar el uso de datos demostrativos, controles de desplazamiento y markup consistente repetido.
 - [x] Confirmar placeholders estáticos en HTML, sin Jinja ni datos cargados por JavaScript.
-- [x] Confirmar las rutas comunes: `/`, `/catalogo.html`, `/producto.html`, `/carrito.html` y `/checkout.html`.
+- [x] Confirmar las rutas previstas de navbar: `/`, `/catalogo.html`, `/producto.html`, `/carrito.html` y `/checkout.html`.
 - [x] Crear placeholders PNG locales válidos y logo SVG bajo `assets/home/`, con nombres, dimensiones y proporciones documentados en [spec.md](spec.md).
 - [x] Preparar contenido demostrativo para el hero y cinco productos por lista, sin fijar una moneda definitiva.
 
@@ -25,14 +25,14 @@ Basadas en [spec.md](spec.md), [plan.md](plan.md), [Context.md](../../Context.md
 ## Hero
 
 - [x] Añadir imagen de campaña reemplazable en `assets/home/hero-campaign.png`, con dimensiones estables y texto alternativo adecuado.
-- [x] Incorporar texto de campaña demostrativo y CTA enlazado a `/catalogo.html`.
+- [x] Incorporar texto de campaña demostrativo y CTA inactivo hasta que exista `/catalogo.html`.
 - [ ] Comprobar legibilidad del texto sobre la imagen y visibilidad del comienzo de la siguiente sección.
 
 ## Listados de productos
 
 - [x] Crear «Nuevos lanzamientos» con cinco tarjetas de demostración y rutas de imagen reemplazables.
 - [x] Crear «Más vendidos» con cinco tarjetas de demostración y rutas de imagen reemplazables.
-- [x] Enlazar las tarjetas de producto a la vista de producto de demostración.
+- [x] Mantener las tarjetas sin enlace hasta que exista `/producto.html`.
 - [x] Mantener tarjetas sin marco decorativo, con imagen 3:4, nombre y precio provisional.
 - [x] Añadir desplazamiento horizontal nativo a ambos listados.
 - [x] Añadir controles anterior/siguiente con nombres accesibles y foco visible en cada listado.
@@ -47,7 +47,8 @@ Basadas en [spec.md](spec.md), [plan.md](plan.md), [Context.md](../../Context.md
 
 ## Verificación
 
-- [x] Comprobar que `/` sirve la Home y que las cuatro rutas provisionales responden.
+- [x] Comprobar que `/` sirve la Home.
+- [ ] Comprobar las cuatro rutas restantes después de crear sus páginas.
 - [ ] Revisar móvil, tablet y escritorio: hero, secciones, navbar y footer.
 - [ ] Navegar con teclado por el enlace de salto, la navbar y los controles de los listados.
 - [ ] Comprobar foco visible, nombres accesibles y operación de los controles con teclado y puntero.

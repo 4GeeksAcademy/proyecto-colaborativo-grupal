@@ -22,11 +22,12 @@ Esta especificación define la estructura y los reemplazos de contenido; no impl
 - Usar español y «Marca» como identidad provisional.
 - Mantener `index.html` como HTML estático con contenido principal presente en el documento, sin Jinja ni carga de datos desde JavaScript.
 - Usar las rutas acordadas para las vistas compartidas: `/`, `/catalogo.html`, `/producto.html`, `/carrito.html` y `/checkout.html`.
+- Las cuatro rutas distintas de `/` son destinos reservados del navbar; sus páginas aún no existen.
 - Usar textos, productos y precios demostrativos claramente provisionales. No asumir precios definitivos, moneda, campaña real ni información de contacto.
 - Usar placeholders locales válidos mientras no haya recursos comerciales autorizados.
 - Mantener la búsqueda y el menú de cuenta inactivos; no implementar búsqueda funcional, autenticación ni backend.
 - Repetir de forma consistente el markup de navbar y footer de la plantilla. No introducir una arquitectura de componentes compartidos en esta fase.
-- Enlazar CTA del hero al catálogo y tarjetas de producto a la vista de producto de demostración.
+- Mantener CTA y tarjetas de producto sin navegación hasta que existan sus vistas de destino.
 - No crear destinos ficticios para categorías, legal o contacto; mientras no existan páginas, presentarlos como texto no interactivo.
 
 ## Archivos reemplazables
@@ -61,7 +62,7 @@ Los comentarios son orientativos para quien edite el archivo y no deben aparecer
 - Incluir búsqueda con etiqueta accesible; permanecerá deshabilitada hasta que se acuerde su comportamiento.
 - Incluir las cinco rutas comunes y marcar Inicio con `aria-current="page"`.
 - Incluir un menú de cuenta que identifique las opciones pendientes, sin simular inicio de sesión.
-- Conservar el acceso al carrito de la plantilla, inactivo hasta que exista su vista.
+- Conservar el acceso al carrito en la navbar como enlace a la ruta futura `/carrito.html`.
 - Adaptar la navegación a móvil sin recortes ni desbordamiento horizontal.
 - Mantener objetivos táctiles de al menos 44 × 44 px y foco visible.
 
@@ -69,7 +70,7 @@ Los comentarios son orientativos para quien edite el archivo y no deben aparecer
 
 - Destacar productos especiales o una campaña mediante imagen autorizada o placeholder temporal.
 - Incluir un único H1 descriptivo y texto demostrativo, sin afirmar campañas comerciales reales.
-- Enlazar el CTA a `/catalogo.html`.
+- Presentar el CTA como pendiente e inactivo hasta que exista `/catalogo.html`.
 - Mantener el texto legible sobre la imagen, sin tarjeta decorativa superpuesta.
 - Definir dimensiones estables para la imagen y texto alternativo cuando sea informativa.
 - En móvil y escritorio debe quedar visible el comienzo de la sección siguiente en la primera pantalla.
@@ -82,7 +83,7 @@ Cada sección deberá:
 
 - Mostrar cinco productos de demostración para que el desplazamiento sea comprobable.
 - Usar tarjetas sin marco decorativo, con imagen 3:4, nombre y precio provisional.
-- Enlazar cada tarjeta a `/producto.html`, que presenta un producto de demostración.
+- Mantener las tarjetas como contenido informativo, no interactivo, hasta que exista `/producto.html`.
 - Permitir desplazamiento táctil y mediante controles anterior/siguiente.
 - Dar a cada control un nombre accesible asociado con su sección; identificar el listado controlado y deshabilitar el control correspondiente al llegar a cada extremo.
 - Permitir operar los controles con teclado y mantener el foco visible.
@@ -112,9 +113,9 @@ Los elementos sin destino confirmado se mostrarán inactivos, no como enlaces va
 
 ## Criterios de aceptación
 
-1. `python3 server.py` sirve la Home en `http://localhost:3000/` y las otras cuatro rutas comunes.
+1. `python3 server.py` sirve Home en `http://localhost:3000/`; las otras cuatro rutas se validarán después de crear sus páginas.
 2. La página contiene un único H1, navbar, hero, las dos secciones de producto y footer.
-3. Navbar, CTA y tarjetas enlazan a las rutas acordadas; los listados se desplazan con teclado, puntero y gestos táctiles.
+3. La navbar conserva las cinco rutas acordadas; CTA y tarjetas permanecen inactivos hasta que existan sus destinos. Los listados se desplazan con teclado, puntero y gestos táctiles.
 4. Navbar, hero, listados y footer se adaptan a móvil, tablet y escritorio sin recortes, solapamientos ni overflow horizontal.
 5. Las imágenes cargan, tienen dimensiones definidas y texto alternativo apropiado.
 6. Los placeholders referenciados existen en las rutas documentadas y pueden sustituirse conservando rutas y proporciones.

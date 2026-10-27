@@ -4,7 +4,7 @@
 
 Crear `index.html` en la raíz del proyecto para que `server.py` sirva la página Home en `/`. La página incluirá navbar, hero promocional, listados horizontales de nuevos lanzamientos y más vendidos, y footer. Seguirá [spec.md](spec.md), los requisitos de [Context.md](../../Context.md), la dirección visual propuesta en [DESIGN.md](../../DESIGN.md) y los patrones de [docs/reference/base.html](../../docs/reference/base.html).
 
-Este plan incluye la navegación común acordada y las páginas provisionales para que las cinco rutas sean navegables; las funciones comerciales específicas continúan pendientes.
+Este plan incluye la navegación común acordada. Solo Home está implementada; las otras cuatro páginas se crearán después.
 
 ## Acuerdos provisionales
 
@@ -16,15 +16,15 @@ Este plan incluye la navegación común acordada y las páginas provisionales pa
 - Mantener la búsqueda y el menú de cuenta inactivos; no implementar búsqueda funcional, autenticación ni backend.
 - Repetir de forma consistente el markup de navbar y footer de la plantilla. No introducir una arquitectura de componentes compartidos en esta fase.
 - Usar las rutas comunes `/`, `/catalogo.html`, `/producto.html`, `/carrito.html` y `/checkout.html`.
-- Enlazar el CTA a Catálogo y las tarjetas de producto a la vista de demostración; mantener los destinos legales y de categorías no interactivos hasta confirmarlos.
+- Conservar las cinco rutas en navbar. Mantener el CTA y las tarjetas no interactivos hasta que existan las páginas de catálogo y producto; dejar el footer sin destinos no confirmados.
 
 ## Pasos
 
 1. Crear el documento `index.html` con estructura semántica, `lang="es"`, metadatos propios de Home y Tailwind CSS v4 por CDN. Mantener el contenido principal en HTML indexable y no trasladar `noindex,nofollow` del ejemplo de menú.
 2. Crear los placeholders PNG de `assets/home/` y el logo SVG; documentar sus nombres, dimensiones y proporciones en [spec.md](spec.md). Marcar el contenido reemplazable con comentarios `REEMPLAZAR:`.
-3. Incorporar el enlace para saltar al contenido y la navbar responsive con las cinco vistas; mantener búsqueda y cuenta inactivas.
-4. Crear el hero con H1 descriptivo, imagen con dimensiones y texto alternativo, y CTA enlazado a `/catalogo.html`. Mantener el contenido legible sobre la imagen y dejar visible el inicio de la sección siguiente en viewports comunes.
-5. Crear las secciones «Nuevos lanzamientos» y «Más vendidos». Cada una tendrá cinco tarjetas sin marco decorativo con imagen 3:4, nombre y precio de demostración, enlazadas a `/producto.html`.
+3. Incorporar el enlace para saltar al contenido y la navbar responsive con las cinco rutas previstas; mantener búsqueda y cuenta inactivas.
+4. Crear el hero con H1 descriptivo, imagen con dimensiones y texto alternativo, y CTA pendiente e inactivo hasta que exista `/catalogo.html`. Mantener el contenido legible y dejar visible el inicio de la sección siguiente.
+5. Crear los listados de demostración con tarjetas informativas no interactivas hasta que exista `/producto.html`.
 6. Añadir desplazamiento horizontal y controles accesibles anterior/siguiente a cada listado. Los controles deben respetar los extremos del desplazamiento y no producir overflow horizontal en la página.
 7. Incorporar el footer de referencia con categorías, información legal, sobre la marca y contacto; dejar inactivos los destinos pendientes.
 8. Verificar la página en el servidor y revisar diseño responsive, teclado, enlaces, recursos y errores de JavaScript. Registrar las verificaciones realmente ejecutadas.
@@ -39,10 +39,10 @@ Este plan incluye la navegación común acordada y las páginas provisionales pa
 
 ## Criterios de aceptación
 
-- `http://localhost:3000/` muestra la Home; las vistas comunes disponen de las rutas acordadas.
+- `http://localhost:3000/` muestra Home; las otras cuatro rutas quedan pendientes de creación.
 - Navbar y footer contienen los elementos acordados y se adaptan a móvil, tablet y escritorio.
-- El hero presenta un H1 único, contenido legible y un CTA a `/catalogo.html`.
-- Las dos secciones muestran tarjetas de demostración que enlazan a `/producto.html`; sus controles desplazan horizontalmente el listado con teclado y puntero.
+- El hero presenta un H1 único, contenido legible y un CTA inactivo hasta que exista su destino.
+- Las secciones muestran tarjetas informativas; sus controles desplazan horizontalmente el listado con teclado y puntero.
 - Título, descripción e idioma corresponden a Home; el documento no queda marcado como `noindex,nofollow`.
 - No hay imágenes rotas, enlaces vacíos engañosos, errores de JavaScript, recortes, solapamientos ni overflow horizontal.
 

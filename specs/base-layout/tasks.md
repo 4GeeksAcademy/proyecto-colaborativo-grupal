@@ -24,8 +24,7 @@ Basadas en [spec.md](spec.md) y [plan.md](plan.md). Las casillas marcadas reflej
 - [x] Mantener un único `main` vacío, sin H1.
 - [x] Añadir enlace de salto al contenido.
 - [x] Mantener búsqueda/cuenta inactivas y destinos legales sin rutas como texto.
-- [x] Crear páginas provisionales en las cuatro rutas que no existían.
-- [x] Mantener `noindex,nofollow` en las vistas provisionales hasta completar su contenido.
+- [ ] Crear `catalogo.html`, `producto.html`, `carrito.html` y `checkout.html` en una fase posterior.
 
 ## Comprobaciones realizadas
 
@@ -33,9 +32,9 @@ Basadas en [spec.md](spec.md) y [plan.md](plan.md). Las casillas marcadas reflej
 - [x] Comprobar ausencia de enlaces con destino vacío.
 - [x] Comprobar sintaxis del JavaScript.
 - [x] Consultar errores del editor en la plantilla.
-- [x] Comprobar que las páginas provisionales no tienen errores de HTML/JavaScript en el editor.
-- [x] Comprobar que las cinco rutas responden desde el servidor.
-- [x] Comprobar estáticamente que todos los enlaces comunes llegan a la vista correspondiente.
+- [ ] Comprobar errores del editor en las cuatro vistas cuando se implementen.
+- [ ] Comprobar que las cinco rutas responden cuando se creen las cuatro vistas pendientes.
+- [x] Comprobar estáticamente que la navbar conserva los href de las cinco rutas acordadas.
 
 ## Verificación pendiente en navegador
 
@@ -54,15 +53,15 @@ Basadas en [spec.md](spec.md) y [plan.md](plan.md). Las casillas marcadas reflej
 ## Antes de reutilizar en páginas definitivas
 
 - [ ] Confirmar marca, logo, idioma definitivo y datos de contacto.
-- [ ] Acordar y conectar las rutas y los destinos legales.
+- [x] Acordar las cinco rutas de navbar; conectar los cuatro destinos pendientes al crear sus vistas.
 - [ ] Definir el comportamiento definitivo de búsqueda y cuenta.
 - [ ] Adaptar título, descripción y política de indexación de cada página.
 - [ ] Registrar resultados reales de las verificaciones pendientes.
 
 ## Funcionalidad de vistas pendiente
 
-- [ ] Implementar catálogo con 20 productos, filtros por categoría/talla y estado sin resultados.
-- [ ] Implementar selección y validación de talla/cantidad y acción de agregar al carrito.
-- [ ] Implementar carrito con productos de ejemplo, cantidades, eliminación e importes tras confirmar moneda/impuestos.
-- [ ] Confirmar pasos restantes del checkout; validar campos y simular confirmación sin procesar pagos.
+- [ ] Crear `catalogo.html` e implementar 20 productos, filtros por categoría/talla y estado sin resultados.
+- [ ] Crear `producto.html` e implementar selección/validación de talla y cantidad y acción de agregar al carrito.
+- [ ] Crear `carrito.html` e implementar productos de ejemplo, cantidades, eliminación e importes tras confirmar moneda/impuestos.
+- [ ] Crear `checkout.html`; confirmar pasos restantes, validar campos y simular confirmación sin procesar pagos.
 - [ ] Retirar `noindex,nofollow` solo cuando el contenido de cada vista esté completo y listo para indexación.
