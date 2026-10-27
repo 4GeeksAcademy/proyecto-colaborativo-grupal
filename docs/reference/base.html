@@ -85,13 +85,16 @@
     <header class="border-b border-line">
       <nav class="page-width" aria-label="Navegación principal">
         <div class="flex min-h-24 flex-wrap items-center justify-between gap-x-4 gap-y-4 py-4">
-          <a aria-disabled="true" class="min-w-0 break-words font-display text-[32px] leading-tight md:text-[40px]" title="Marca provisional; inicio pendiente">
+          <a href="/" class="min-w-0 shrink-0 break-words font-display text-[32px] leading-tight md:text-[40px]" aria-label="Marca, inicio">
             Marca<span class="text-accent" aria-hidden="true">.</span>
           </a>
 
-          <div class="hidden items-center gap-6 lg:flex" aria-label="Secciones">
-            <a aria-disabled="true" class="pending-link" title="Destino pendiente">Inicio</a>
-            <a aria-disabled="true" class="pending-link" title="Destino pendiente">Catálogo</a>
+          <div class="hidden items-center gap-4 xl:flex">
+            <a href="/" class="inline-flex min-h-11 items-center whitespace-nowrap">Inicio</a>
+            <a href="/catalogo.html" class="inline-flex min-h-11 items-center whitespace-nowrap">Catálogo</a>
+            <a href="/producto.html" class="inline-flex min-h-11 items-center whitespace-nowrap">Vista de producto</a>
+            <a href="/carrito.html" class="inline-flex min-h-11 items-center whitespace-nowrap">Carrito</a>
+            <a href="/checkout.html" class="inline-flex min-h-11 items-center whitespace-nowrap">Formulario de pago</a>
           </div>
 
           <form role="search" aria-label="Buscar productos" class="order-3 w-full md:order-none md:ml-auto md:w-auto md:max-w-sm md:flex-1">
@@ -112,24 +115,23 @@
                 <li><button type="button" disabled class="pending-link w-full" title="Pedidos pendientes">Mis pedidos</button></li>
               </ul>
             </details>
-            <button type="button" disabled class="icon-control text-muted" aria-label="Carrito, pendiente" title="Carrito (pendiente)">
+            <a href="/carrito.html" class="icon-control text-muted hover:bg-surface" aria-label="Carrito" title="Carrito">
               <i data-lucide="shopping-bag" class="size-5" aria-hidden="true"></i>
-            </button>
+            </a>
           </div>
         </div>
 
-        <details id="mobile-navigation" class="border-t border-line lg:hidden">
+        <details id="mobile-navigation" class="border-t border-line xl:hidden">
           <summary class="flex min-h-12 cursor-pointer items-center justify-between gap-4 py-3">
             <span>Menú</span>
             <i data-lucide="menu" class="size-5 shrink-0" aria-hidden="true"></i>
           </summary>
           <ul class="grid grid-cols-1 gap-x-8 pb-4 sm:grid-cols-2">
-            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Inicio</a></li>
-            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Catálogo</a></li>
-            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Calzado</a></li>
-            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Camisas</a></li>
-            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Pantalones</a></li>
-            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Accesorios</a></li>
+            <li><a href="/" class="pending-link">Inicio</a></li>
+            <li><a href="/catalogo.html" class="pending-link">Catálogo</a></li>
+            <li><a href="/producto.html" class="pending-link">Vista de producto</a></li>
+            <li><a href="/carrito.html" class="pending-link">Carrito</a></li>
+            <li><a href="/checkout.html" class="pending-link">Formulario de pago</a></li>
           </ul>
         </details>
       </nav>
@@ -146,26 +148,26 @@
         <nav aria-labelledby="footer-categories">
           <h2 id="footer-categories" class="footer-title">Categorías</h2>
           <ul>
-            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Calzado</a></li>
-            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Camisas</a></li>
-            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Pantalones</a></li>
-            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Accesorios</a></li>
+            <li><span class="pending-link text-muted">Calzado</span></li>
+            <li><span class="pending-link text-muted">Camisas</span></li>
+            <li><span class="pending-link text-muted">Pantalones</span></li>
+            <li><span class="pending-link text-muted">Accesorios</span></li>
           </ul>
         </nav>
 
         <nav aria-labelledby="footer-information">
           <h2 id="footer-information" class="footer-title">Información</h2>
           <ul>
-            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Términos y condiciones</a></li>
-            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Política de privacidad</a></li>
-            <li><a aria-disabled="true" class="pending-link" title="Destino pendiente">Sobre la marca</a></li>
+            <li><span class="pending-link text-muted">Términos y condiciones</span></li>
+            <li><span class="pending-link text-muted">Política de privacidad</span></li>
+            <li><span class="pending-link text-muted">Sobre la marca</span></li>
           </ul>
         </nav>
 
         <nav aria-labelledby="footer-contact">
           <h2 id="footer-contact" class="footer-title">Contacto</h2>
           <ul>
-            <li><a aria-disabled="true" class="pending-link" title="Datos de contacto pendientes">Atención al cliente</a></li>
+            <li><span class="pending-link text-muted" title="Datos de contacto pendientes">Atención al cliente</span></li>
           </ul>
         </nav>
       </div>

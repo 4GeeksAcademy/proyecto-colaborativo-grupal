@@ -6,7 +6,8 @@ Basadas en [spec.md](spec.md) y [plan.md](plan.md). Las casillas marcadas reflej
 
 - [x] Confirmar español provisional y rótulo "Marca".
 - [x] Confirmar carga de fuentes mediante Google Fonts.
-- [x] Acordar que los destinos pendientes estén deshabilitados.
+- [x] Acordar las rutas de Inicio, Catálogo, Vista de producto, Carrito y Checkout.
+- [x] Mantener como texto no interactivo los destinos pendientes del footer.
 
 ## Plantilla existente
 
@@ -14,12 +15,16 @@ Basadas en [spec.md](spec.md) y [plan.md](plan.md). Las casillas marcadas reflej
 - [x] Añadir codificación, viewport y metadatos de referencia.
 - [x] Incluir Tailwind CSS v4 mediante el CDN indicado.
 - [x] Declarar la paleta y las tipografías propuestas.
-- [x] Añadir navbar con búsqueda, cuenta y acceso al carrito.
+- [x] Añadir navbar con las cinco vistas en escritorio y móvil.
+- [x] Enlazar logo a Inicio y acceso al carrito a su página.
+- [x] Marcar la vista actual en cada página y dejar neutral la plantilla de referencia.
+- [x] Cambiar anchors sin `href` por texto no interactivo y quitar etiqueta ARIA del `div` genérico.
 - [x] Añadir desplegables nativos de cuenta y navegación móvil.
 - [x] Añadir footer con categorías, información legal y contacto.
 - [x] Mantener un único `main` vacío, sin H1.
 - [x] Añadir enlace de salto al contenido.
-- [x] Deshabilitar controles y destinos sin implementar.
+- [x] Mantener búsqueda/cuenta inactivas y destinos legales sin rutas como texto.
+- [ ] Crear `catalogo.html`, `producto.html`, `carrito.html` y `checkout.html` en una fase posterior.
 
 ## Comprobaciones realizadas
 
@@ -27,6 +32,9 @@ Basadas en [spec.md](spec.md) y [plan.md](plan.md). Las casillas marcadas reflej
 - [x] Comprobar ausencia de enlaces con destino vacío.
 - [x] Comprobar sintaxis del JavaScript.
 - [x] Consultar errores del editor en la plantilla.
+- [ ] Comprobar errores del editor en las cuatro vistas cuando se implementen.
+- [ ] Comprobar que las cinco rutas responden cuando se creen las cuatro vistas pendientes.
+- [x] Comprobar estáticamente que la navbar conserva los href de las cinco rutas acordadas.
 
 ## Verificación pendiente en navegador
 
@@ -45,7 +53,15 @@ Basadas en [spec.md](spec.md) y [plan.md](plan.md). Las casillas marcadas reflej
 ## Antes de reutilizar en páginas definitivas
 
 - [ ] Confirmar marca, logo, idioma definitivo y datos de contacto.
-- [ ] Acordar y conectar las rutas y los destinos legales.
+- [x] Acordar las cinco rutas de navbar; conectar los cuatro destinos pendientes al crear sus vistas.
 - [ ] Definir el comportamiento definitivo de búsqueda y cuenta.
 - [ ] Adaptar título, descripción y política de indexación de cada página.
 - [ ] Registrar resultados reales de las verificaciones pendientes.
+
+## Funcionalidad de vistas pendiente
+
+- [ ] Crear `catalogo.html` e implementar 20 productos, filtros por categoría/talla y estado sin resultados.
+- [ ] Crear `producto.html` e implementar selección/validación de talla y cantidad y acción de agregar al carrito.
+- [ ] Crear `carrito.html` e implementar productos de ejemplo, cantidades, eliminación e importes tras confirmar moneda/impuestos.
+- [ ] Crear `checkout.html`; confirmar pasos restantes, validar campos y simular confirmación sin procesar pagos.
+- [ ] Retirar `noindex,nofollow` solo cuando el contenido de cada vista esté completo y listo para indexación.

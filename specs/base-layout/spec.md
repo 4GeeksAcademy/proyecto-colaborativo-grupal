@@ -12,7 +12,7 @@ Fuentes: [Context.md](../../Context.md), [DESIGN.md](../../DESIGN.md) y [AGENTS.
 - Esta tarea solo documenta requisitos; no crea la plantilla ni implementa código.
 - Incluir estructura del documento, metadatos básicos, Tailwind CSS v4 por CDN, navbar, un único `main` vacío y footer.
 - No incluir hero, productos, filtros, carrito, formularios ni contenido específico de las vistas.
-- La ubicación de referencia no cambia la entrada del servidor ni define las rutas definitivas de la tienda.
+- La plantilla es una referencia estática; `/` sirve Home. La navbar reserva `/catalogo.html`, `/producto.html`, `/carrito.html` y `/checkout.html`, pero sus archivos se crearán en una fase posterior.
 - No introducir frameworks, dependencias de build ni una arquitectura de componentes.
 
 ## Documento y dependencias
@@ -35,10 +35,14 @@ Fuentes: [Context.md](../../Context.md), [DESIGN.md](../../DESIGN.md) y [AGENTS.
 
 ## Navbar
 
-- Incluir espacio para el logo o identidad de la marca, búsqueda, menú de cuenta y acceso al carrito.
-- La identidad enlazará al inicio cuando se acuerde su ruta; no inventar una marca.
+- Incluir las cinco vistas comunes: Inicio (`/`), Catálogo (`/catalogo.html`), Vista de producto (`/producto.html`), Carrito (`/carrito.html`) y Formulario de pago (checkout; `/checkout.html`).
+- El logo enlaza a Inicio; el acceso por icono al carrito enlaza a `/carrito.html`.
+- Marcar la vista actual con `aria-current="page"` en cada página implementada. La plantilla de referencia no debe declarar una vista activa por defecto.
+- Incluir búsqueda y menú de cuenta; mantener su comportamiento inactivo hasta acordarlo.
+- La vista de producto de demostración se puede abrir desde Catálogo y desde las tarjetas de Home.
 - Proporcionar un campo de búsqueda con etiqueta accesible, no solo un placeholder.
-- Mantener los controles alineados en escritorio y reorganizarlos sin desbordamiento en móvil.
+- Mostrar las cinco vistas en navegación de escritorio desde un ancho suficiente; en anchos menores, ofrecer un menú compacto con esas mismas rutas y sin desbordamiento.
+- Mantener esos cuatro href como destinos futuros aunque sus archivos todavía no existan; no considerar esas rutas funcionales hasta crear las vistas.
 - Prever un menú compacto para móvil con control accesible, estado expandido identificable y navegación mediante teclado.
 - Los botones de icono tendrán nombre accesible y ayuda para iconos poco familiares.
 - No implementar autenticación, resultados de búsqueda, contador de carrito ni persistencia como parte de esta plantilla.
@@ -51,7 +55,7 @@ Fuentes: [Context.md](../../Context.md), [DESIGN.md](../../DESIGN.md) y [AGENTS.
 - Información legal: términos y condiciones, política de privacidad e información sobre la marca.
 - No inventar direcciones, correos, datos de empresa ni textos legales.
 - Apilar los grupos en móvil y distribuirlos en columnas cuando el espacio lo permita.
-- Los destinos definitivos deben confirmarse antes de considerar completa la navegación; no aprobar enlaces vacíos o sin destino como funcionales.
+- Mantener como texto no interactivo los destinos legales, categorías y contacto que todavía no tengan páginas aprobadas; no usar anchors sin `href`.
 
 ## Diseño responsive y accesibilidad
 
@@ -70,7 +74,10 @@ Fuentes: [Context.md](../../Context.md), [DESIGN.md](../../DESIGN.md) y [AGENTS.
 - La implementación futura existe en la ubicación acordada y carga Tailwind CSS v4 desde el CDN indicado.
 - El documento incluye viewport, codificación, idioma y metadatos adaptables por página.
 - Existe exactamente un `main`, vacío y accesible mediante el enlace de salto.
-- Navbar y footer contienen todos los elementos requeridos sin incorporar contenido de las cinco vistas.
+- Navbar y footer contienen los elementos acordados; la navegación conserva href para las cinco rutas previstas y el footer sus grupos definidos.
+- Las cuatro rutas futuras no se consideran funcionales hasta que se creen sus archivos HTML.
+- No hay anchors sin `href`; los elementos sin destino aprobado son no interactivos.
+- Cada vista implementada marca la actual con `aria-current="page"`; la plantilla de referencia no marca ninguna como actual.
 - Revisar manualmente móvil, tablet y escritorio, teclado, foco, menú compacto y ausencia de solapamientos.
 - Comprobar carga de recursos, contraste y destinos de enlaces cuando estén definidos.
 - No afirmar funcionalidad comercial, autenticación, búsqueda ni persistencia que no se hayan implementado.
@@ -79,6 +86,6 @@ Fuentes: [Context.md](../../Context.md), [DESIGN.md](../../DESIGN.md) y [AGENTS.
 ## Decisiones pendientes
 
 - Marca, logo autorizado, idioma definitivo y datos de contacto.
-- Rutas de las páginas y destinos de categorías y enlaces legales.
+- Destinos de categorías, enlaces legales y contacto.
 - Alcance de búsqueda y cuenta, y método de carga de las fuentes.
 - Esta especificación no aprueba las propuestas pendientes de checkout, impuestos, moneda ni persistencia.
